@@ -8,22 +8,20 @@ const {
   deleteGoal,
 } = require('../controllers/goalController.js');
 
-// Get All Goals & Create Goal
+// Use router.route to combine similar paths with different methods.
 router.route('/').get(getGoals).post(createGoal);
+router.route('/:id').get(getGoal).put(updateGoal).delete(deleteGoal);
 
-// The next 4 lines are replaced by the router.route function above.
+// The lines below are replaced by the router.route function above.
 // Get All Goals
 // router.get('/', getGoals);
+// Get Single Goal
+//router.get('/:id', getGoal);
 // Create Goal
 // router.post('/', createGoal);
-
-// Get Single Goal
-router.get('/:id', getGoal);
-
 // Update Goal
-router.put('/:id', updateGoal);
-
+//router.put('/:id', updateGoal);
 // Delete Goal
-router.delete('/:id', deleteGoal);
+//router.delete('/:id', deleteGoal);
 
 module.exports = router;
